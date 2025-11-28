@@ -49,7 +49,7 @@ fn check_port(input: String) -> Vec<u16> {
 
 fn scan(ip: Ipv4Addr, port: u16) -> u8 {
     let addr = SocketAddr::V4(SocketAddrV4::new(ip, port));
-    let timeout = Duration::from_secs(1); // reduced timeout for faster scanning
+    let timeout = Duration::from_secs(1);
 
     match TcpStream::connect_timeout(&addr, timeout) {
         Ok(_) => 1, // port is open
